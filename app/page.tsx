@@ -563,7 +563,7 @@ const inputStyle: React.CSSProperties = {
   transition: 'border-color 0.2s',
 }
 
-function Input({ onChange, value, ...props }: React.InputHTMLAttributes<HTMLInputElement> & { onChange?: (v: string) => void }) {
+function Input({ onChange, value, ...props }: Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> & { onChange?: (v: string) => void }) {
   return <input style={inputStyle} {...props} value={value} onChange={e => onChange?.(e.target.value)} />
 }
 
